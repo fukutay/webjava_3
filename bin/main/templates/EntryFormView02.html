@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>EntryForm</title>
+	<meta charset="UTF-8" />
+</head>
+<body>
+	<h1>エントリーフォーム(契約社員採用向け)</h1>
+	<div>
+    会社情報
+	</div>
+	<table>
+	<br />
+		<span>会社名: </span>
+		<span th:text="${form.jobName}"></span>
+		<br />
+		<span>契約形態: </span>
+		<span th:text="${form.jobStatus}"></span>
+		<br />
+		<span>給与(月額): </span>
+		<span th:text="${form.jobSalary}"></span>
+		<br />
+		<br />
+	</table>
+	<form action="#" th:action="@{/Entry}" th:object="${Form}" method="post">
+	<table>
+    	<span>以下を入力してください</span>
+		<tr>
+    		<td align="right"><b> 氏名：</b></td>
+    		<td><input type="text" name="name" size="30" maxlength="20"></td>
+  		</tr>
+  		<br />
+		<tr>
+    		<td align="right"><b> 応募動機：</b></td>
+    		<td><textarea type="text" name="motive" cols="40" rows="5"></textarea></td>
+    	</tr>
+    	<br />
+    </table>
+		<td>
+			<input type="submit" value="送信" class="btn">
+		</td>
+	</form>
+		<td>
+			<a href="/HelloWork">戻る</a>
+		</td>
+</body>
+</html>
